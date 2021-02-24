@@ -1,0 +1,97 @@
+// JAVA OOP Encapsulation Modul 4 No 1
+
+
+
+public class JumlahArray
+{
+    private int[][] numbers1, numbers2, hasil, cetak;
+    
+    public void setNumbers1(int[][] numbers1) {
+        this.numbers1 = numbers1;
+        numbers1 = null;
+    };
+
+    public int[][] getNumbers1() {
+        return numbers1;
+    };
+
+    public void setNumbers2(int[][] numbers2) {
+        this.numbers2 = numbers2;
+        numbers2 = null;
+    };
+
+    public int[][] getNumbers2() {
+        return numbers2;
+    };
+
+
+    public void setPertambahanNumber(int[][] numbers1, int[][] numbers2) {
+        hasil = numbers1;
+        int i, j;
+        for (i = 0; i < numbers1.length; i++) {
+            for (j = 0; j < numbers1[i].length; j++) {
+            hasil [i][j] = numbers1[i][j] + numbers2[i][j];
+            };
+        };
+        numbers1 = null;
+        numbers2 = null;
+    };
+    public int[][] getPertambahanNumber() {
+        return hasil;
+    }
+
+    public void tampilHasil(int cetak[][]) {
+        int i, j;
+        for (i = 0; i < cetak.length; i++) {
+            for (j = 0; j < cetak[i].length; j++) {
+                System.out.print(cetak[i][j] + "  ");
+            }
+            System.out.println();
+        }
+    }
+
+    public void hapus() {
+        numbers1 = null;
+        numbers2 = null;
+        hasil = null;
+    }
+}
+
+public class Array2d
+{
+    
+      public static void main(String[] args) {
+        JumlahArray obj = new JumlahArray();
+        int[][] numbers1 = {
+            {1, 2},
+            {3, 5},
+            {6, 7}
+        };
+        
+        int[][] numbers2 = {
+            {8, 9},
+            {10, 11},
+            {12, 13}
+        };
+
+
+        obj.setNumbers1(numbers1);
+        obj.setNumbers2(numbers2);
+
+
+        System.out.println("Matrix A : ");
+        obj.tampilHasil(obj.getNumbers1());
+        System.out.println();
+
+        System.out.println("Matrix B : ");
+        obj.tampilHasil(obj.getNumbers2());
+        System.out.println("\n================\n");
+        
+        System.out.println("Matrix (A + B) :  ");
+        obj.setPertambahanNumber(numbers1, numbers2);
+        obj.tampilHasil(obj.getPertambahanNumber());
+
+        obj.hapus();
+    }
+
+}
