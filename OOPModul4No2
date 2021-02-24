@@ -1,0 +1,115 @@
+// JAVA OOP Encapsulation Modul 4 No 2
+
+public class JumlahArray
+{
+    private int [][] numbers;
+    private double [][] doubleNumbers;
+    private double [][] hasil;
+    
+    public void setNumbers(int [][] numbers) {
+        this.numbers = numbers;
+        numbers = null;
+    };
+
+    public int [][] getNumbers() {
+        return numbers;
+    };
+
+    public void setDoubleNumbers(double [][] doubleNumbers) {
+        this.doubleNumbers = doubleNumbers;
+        doubleNumbers = null;
+    };
+
+    public double [][] getDoubleNumbers() {
+        return doubleNumbers;
+    };
+
+
+    public void setPerkalianNumber(double [][] doubleNumbers, double  c) {
+        hasil = doubleNumbers;
+        int i, j;
+        for (i = 0; i < doubleNumbers.length; i++) {
+            for (j = 0; j < doubleNumbers[i].length; j++) {
+            hasil [i][j] = c * doubleNumbers[i][j];
+            };
+        };
+        doubleNumbers = null;
+    };
+    public double[][] getPerkalianNumber() {
+        return hasil;
+    }
+
+    public void tampilHasil(int cetak[][]) {
+        int i, j;
+        for (i = 0; i < cetak.length; i++) {
+            for (j = 0; j < cetak[i].length; j++) {
+                System.out.print(cetak[i][j] + "  ");
+            }
+            System.out.println();
+        }
+    }
+
+    public void tampilHasil(double cetak[][]) {
+        int i, j;
+        for (i = 0; i < cetak.length; i++) {
+            for (j = 0; j < cetak[i].length; j++) {
+                System.out.print(cetak[i][j] + "  ");
+            }
+            System.out.println();
+        }
+    }
+
+    public void hapus() {
+        doubleNumbers = null;
+        hasil = null;
+    }
+}
+
+public class Array2d
+{
+    
+      public static void main(String[] args) {
+        double c = 0.5;
+        JumlahArray obj = new JumlahArray();
+        int[][] numbers = {
+            {9, 11},
+            {13, 16},
+            {18, 20}
+        };
+
+        double[][] doubleNumbers = new double[3][2];
+        for(int i=0; i<numbers.length; i++) {
+            for(int j=0; j<numbers[i].length; j++) {
+                doubleNumbers[i][j] = numbers[i][j];
+            }
+        }
+
+        obj.setNumbers(numbers);
+        System.out.println("Matrix C : ");
+        obj.tampilHasil(obj.getNumbers());
+        System.out.println("\n================\n");
+        
+        System.out.println("Matrix (C * 0.5) :  ");
+        obj.setPerkalianNumber(doubleNumbers, c);
+        obj.tampilHasil(obj.getPerkalianNumber());
+
+        obj.hapus();
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
